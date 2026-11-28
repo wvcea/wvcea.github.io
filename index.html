@@ -346,7 +346,7 @@ input:invalid.touched,select:invalid.touched{border-color:var(--pink)}
         <div class="row"><dt>구성</dt><dd>1부 세미나 · 포럼<br>2부 매칭 · 네트워킹 · 시상<br>3부 경제문화축제</dd></div>
         <div class="row"><dt>부스</dt><dd>한국 기업 30개<small>교육/기술 · 의료 · 화장품 · 건강보조식품</small></dd></div>
         <div class="row"><dt>대상</dt><dd>뷰티 · 의료 기업 대표, 바이어, 여성 CEO, 인플루언서, 정부 · 기관 관계자, 전문가</dd></div>
-        <div class="row"><dt>주최 · 주관</dt><dd>(사)세계직업능력교류협회(WVCEA) · ㈜엠비티티(MBTT)<small>강원특별자치도 · 강원랜드-하이원리조트-하이원그랜드호텔</small></dd></div>
+        <div class="row"><dt>주최 · 주관</dt><dd>사단법인 세계직업능력교류협회(WVCEA)</dd></div>
       </dl>
       <div class="panel mapbox">
         <h3 style="color:#fff">오시는 길</h3>
@@ -367,7 +367,7 @@ input:invalid.touched,select:invalid.touched{border-color:var(--pink)}
       </div>
     </div>
     <div class="panel" style="margin-top:20px">
-      <h3>참가국 · 공동주최 <small style="font-weight:400;color:var(--mute);font-size:15px">해외 13개국 외 다수 대표단</small></h3>
+      <h3>참가국 · 해외 대표단 <small style="font-weight:400;color:var(--mute);font-size:15px">해외 13개국 외 다수 대표단</small></h3>
       <div class="chips"><span>미국</span><span>영국</span><span>사우디아라비아</span><span>베트남</span><span>일본</span><span>몽골</span><span>브라질</span><span>두바이</span><span>싱가포르</span><span>말레이시아</span><span>키르기스스탄</span><span>러시아</span><span>튀르키예</span><span>추가 중</span></div>
     </div>
   </div>
@@ -422,7 +422,7 @@ input:invalid.touched,select:invalid.touched{border-color:var(--pink)}
         <button class="btn pri" type="button" data-open data-type="VIP">VIP 부스 신청</button>
       </div>
     </div>
-    <p class="note">참가비 VAT 별도 · 비회원 신청 시 (사)세계직업능력교류협회 정회원으로 자동 가입되며, 이후 협회 행사에서 회원 참가비가 적용됩니다.</p>
+    <p class="note">참가비는 기부금 영수증을 발행해 드립니다 · 비회원 신청 시 (사)세계직업능력교류협회 정회원으로 자동 가입되며, 이후 협회 행사에서 회원 참가비가 적용됩니다.</p>
   </div>
 </section>
 
@@ -527,7 +527,7 @@ input:invalid.touched,select:invalid.touched{border-color:var(--pink)}
 
 <footer>
   <div class="wrap">
-    <div><b>(사)세계직업능력교류협회 WVCEA</b><br>주최·주관 (사)세계직업능력교류협회 · ㈜MBTT<br>강원특별자치도 · 강원랜드-하이원리조트-하이원그랜드호텔</div>
+    <div><b>(사)세계직업능력교류협회 WVCEA</b><br>주최·주관 사단법인 세계직업능력교류협회</div>
     <div>홈페이지 <a href="https://www.wvcea.com" target="_blank" rel="noopener">www.wvcea.com</a><br>문의 1833-5015 · wvcea2000@naver.com<br>© 2026 WVCEA. All rights reserved.</div>
   </div>
 </footer>
@@ -563,7 +563,7 @@ input:invalid.touched,select:invalid.touched{border-color:var(--pink)}
           <div class="f"><label class="l" for="sub">세부 분야 <i>*</i></label><select id="sub" name="세부분야" required><option value="">주제관을 먼저 선택하세요</option></select></div>
           <div class="f"><label class="l" for="prod">주요 제품 · 서비스 <i>*</i></label><input id="prod" name="주요제품" required placeholder="예: 기능성 세럼, 종합검진 패키지"></div>
         </div>
-        <div class="total"><span>예상 참가비 (VAT 별도)</span><b id="total">유형을 선택하세요</b></div>
+        <div class="total"><span>예상 참가비 (기부금 영수증 발행)</span><b id="total">유형을 선택하세요</b></div>
       </fieldset>
       <fieldset>
         <legend>2. 기업 정보</legend>
@@ -644,7 +644,7 @@ form.addEventListener('input',()=>{try{const d={};['기업명','사업자등록�
 
 function collect(){const m=val('회원구분'),t=val('부스유형');
   const g=n=>form.querySelector(`[name="${n}"]`).value.trim();
-  return {'신청일시':new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),'회원구분':m,'부스유형':t==='VIP'?'VIP 프리미엄 부스':'일반 부스','예상참가비(VAT별도)':'₩'+PRICE[m][t].toLocaleString('ko-KR'),'희망 주제관':val('주제관'),'세부분야':g('세부분야'),'주요 제품·서비스':g('주요제품'),'기업명':g('기업명'),'사업자등록번호':g('사업자등록번호'),'대표자':g('대표자'),'홈페이지':g('홈페이지'),'주소':g('주소'),'담당자명':g('담당자명'),'부서·직책':g('직책'),'휴대전화':g('연락처'),'이메일':g('이메일'),'희망 국가':[...form.querySelectorAll('[name="희망국가"]:checked')].map(c=>c.value).join(', '),'요청사항':g('요청사항'),'규정·개인정보 동의':'동의함'};}
+  return {'신청일시':new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),'회원구분':m,'부스유형':t==='VIP'?'VIP 프리미엄 부스':'일반 부스','예상참가비(기부금 영수증 발행)':'₩'+PRICE[m][t].toLocaleString('ko-KR'),'희망 주제관':val('주제관'),'세부분야':g('세부분야'),'주요 제품·서비스':g('주요제품'),'기업명':g('기업명'),'사업자등록번호':g('사업자등록번호'),'대표자':g('대표자'),'홈페이지':g('홈페이지'),'주소':g('주소'),'담당자명':g('담당자명'),'부서·직책':g('직책'),'휴대전화':g('연락처'),'이메일':g('이메일'),'희망 국가':[...form.querySelectorAll('[name="희망국가"]:checked')].map(c=>c.value).join(', '),'요청사항':g('요청사항'),'규정·개인정보 동의':'동의함'};}
 const toText=d=>Object.entries(d).map(([k,v])=>`${k}: ${v||'-'}`).join('\n');
 
 function showDone(ok,data){fbox.hidden=true;done.hidden=false;
